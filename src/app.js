@@ -6,7 +6,7 @@ function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&
 
 /* ================================================================ saved state (this browser only) */
 var KEY = 'ielts-reading-lab-v1';
-function fresh() { return { a: {}, open: {}, hl: {}, test: { submitted: false }, timer: { start: null } }; }
+function fresh() { return { a: {}, open: {}, hl: {}, uh: {}, test: { submitted: false }, timer: { start: null } }; }
 var S = fresh();
 try { var raw = localStorage.getItem(KEY); if (raw) { var got = JSON.parse(raw); for (var k in S) if (got[k]) S[k] = got[k]; } } catch (e) {}
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
@@ -115,6 +115,118 @@ PSGS.forEach(function (p, i) {
   p._setHl = function (on) { if (on) S.hl[i] = true; else delete S.hl[i]; set(on); };
 });
 
+/* ================================================================ your own highlighter
+   Select words in a passage, pick a colour. Marks are stored as character offsets in the passage text
+   (the controls row is skipped), so they come back exactly after a reload. */
+if (!S.uh) S.uh = {};
+var COLORS = [['y', 'Yellow'], ['g', 'Green'], ['p', 'Pink'], ['b', 'Blue']];
+var BAR = document.createElement('div');
+BAR.className = 'hlbar'; BAR.hidden = true; BAR.setAttribute('role', 'toolbar'); BAR.setAttribute('aria-label', 'Highlight');
+document.body.appendChild(BAR);
+function textNodes(psg) {
+  var out = [], w = document.createTreeWalker(psg, NodeFilter.SHOW_TEXT, { acceptNode: function (n) {
+    return n.parentNode.closest('.hlrow, button') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; } });
+  while (w.nextNode()) out.push(w.currentNode);
+  return out;
+}
+function offsetOf(psg, node, off) {
+  var pre = document.createRange(), pos = 0;
+  pre.setStart(psg, 0); pre.setEnd(node, off);
+  textNodes(psg).forEach(function (n) { if (n === node) pos += off; else if (pre.intersectsNode(n)) pos += n.length; });
+  return pos;
+}
+function unpaint(psg) {
+  $$('mark.uh', psg).forEach(function (m) { var p = m.parentNode; while (m.firstChild) p.insertBefore(m.firstChild, m); p.removeChild(m); p.normalize(); });
+}
+function paintUser(psg) {
+  unpaint(psg);
+  var items = S.uh[psg.dataset.pi] || [];
+  items.forEach(function (it) {
+    var pos = 0;
+    textNodes(psg).forEach(function (n) {
+      var a = pos, b = pos + n.length; pos = b;
+      if (b <= it.s || a >= it.e || !n.nodeValue.trim() || n.parentNode === psg) return;
+      var from = Math.max(it.s - a, 0), to = Math.min(it.e - a, n.length);
+      if (to <= from) return;
+      var mid = n; if (from > 0) mid = n.splitText(from);
+      if (to - from < mid.length) mid.splitText(to - from);
+      var m = document.createElement('mark'); m.className = 'uh uh-' + it.c; m.dataset.u = it.id; m.title = 'Your highlight: tap to remove';
+      mid.parentNode.insertBefore(m, mid); m.appendChild(mid);
+    });
+  });
+  var c = $('.uclear', psg); if (c) { c.hidden = !items.length; var cc = $('.uconfirm', psg); if (cc) cc.remove(); }
+}
+var PSGS_U = $$('.psg');
+PSGS_U.forEach(function (p, i) { p.dataset.pi = i; paintUser(p); });
+var pending = null, removing = null;
+function placeBar(rect) {
+  BAR.hidden = false;
+  var w = BAR.offsetWidth, x = Math.min(Math.max(rect.left + rect.width / 2 - w / 2 + window.scrollX, window.scrollX + 8), window.scrollX + document.documentElement.clientWidth - w - 8);
+  BAR.style.left = x + 'px'; BAR.style.top = (rect.bottom + window.scrollY + 10) + 'px';
+}
+function hideBar() { BAR.hidden = true; pending = null; removing = null; }
+function showColours(range, psg) {
+  pending = { range: range.cloneRange(), psg: psg }; removing = null;
+  BAR.innerHTML = COLORS.map(function (c) { return '<button type="button" class="sw uh-' + c[0] + '" data-c="' + c[0] + '" aria-label="' + c[1] + '" title="' + c[1] + '"></button>'; }).join('');
+  placeBar(range.getBoundingClientRect());
+}
+var selTimer = null;
+document.addEventListener('selectionchange', function () {
+  clearTimeout(selTimer);
+  selTimer = setTimeout(function () {
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.rangeCount) { if (pending) hideBar(); return; }
+    var r = sel.getRangeAt(0), anc = r.commonAncestorContainer.nodeType === 3 ? r.commonAncestorContainer.parentNode : r.commonAncestorContainer;
+    var psg = anc.closest && anc.closest('.psg');
+    if (!psg || anc.closest('.hlrow') || !r.toString().trim()) { if (pending) hideBar(); return; }
+    showColours(r, psg);
+  }, 180);
+});
+BAR.addEventListener('pointerdown', function (e) { e.preventDefault(); });   // keep the selection while tapping a colour
+BAR.addEventListener('mousedown', function (e) { e.preventDefault(); });
+BAR.addEventListener('click', function (e) {
+  var b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.c && pending) {
+    var psg = pending.psg, r = pending.range;
+    var s = offsetOf(psg, r.startContainer, r.startOffset), en = offsetOf(psg, r.endContainer, r.endOffset);
+    var full = textNodes(psg).map(function (n) { return n.nodeValue; }).join('');
+    while (s < en && /\s/.test(full.charAt(s))) s++;
+    while (en > s && /\s/.test(full.charAt(en - 1))) en--;
+    if (s >= 0 && en > s) {
+      var k = psg.dataset.pi; (S.uh[k] = S.uh[k] || []).push({ s: s, e: en, c: b.dataset.c, id: Date.now().toString(36) + Math.random().toString(36).slice(2, 5) });
+      save(); paintUser(psg);
+    }
+    window.getSelection().removeAllRanges(); hideBar();
+  } else if (b.dataset.rm && removing) {
+    var p2 = removing.psg, k2 = p2.dataset.pi;
+    S.uh[k2] = (S.uh[k2] || []).filter(function (it) { return it.id !== removing.id; });
+    if (!S.uh[k2].length) delete S.uh[k2];
+    save(); paintUser(p2); hideBar();
+  }
+});
+document.addEventListener('click', function (e) {
+  var m = e.target.closest && e.target.closest('mark.uh');
+  if (m && window.getSelection().isCollapsed) {
+    removing = { psg: m.closest('.psg'), id: m.dataset.u }; pending = null;
+    BAR.innerHTML = '<button type="button" class="ghost sm" data-rm="1">Remove highlight</button>';
+    placeBar(m.getBoundingClientRect()); return;
+  }
+  if (!BAR.hidden && !e.target.closest('.hlbar') && window.getSelection().isCollapsed) hideBar();
+  var cb = e.target.closest && e.target.closest('[data-uclear]');
+  if (cb) {
+    var box = cb.closest('.uclear');
+    if ($('.uconfirm', box)) return;
+    var span = document.createElement('span'); span.className = 'uconfirm';
+    span.innerHTML = ' Clear all your highlights in this passage? <button type="button" class="danger sm" data-uyes>Clear</button> <button type="button" class="ghost sm" data-uno>Keep</button>';
+    box.appendChild(span);
+  }
+  var y = e.target.closest && e.target.closest('[data-uyes]');
+  if (y) { var ps = y.closest('.psg'); delete S.uh[ps.dataset.pi]; save(); paintUser(ps); }
+  var no = e.target.closest && e.target.closest('[data-uno]');
+  if (no) no.closest('.uconfirm').remove();
+});
+function clearUser(psg) { delete S.uh[psg.dataset.pi]; paintUser(psg); }
+
 /* ================================================================ per-pattern buttons */
 document.addEventListener('click', function (e) {
   var b = e.target.closest && e.target.closest('[data-showall], [data-clear]'); if (!b) return;
@@ -170,7 +282,7 @@ function renderMarking() {
         '<button type="button" class="primary sm" id="mark-yes">Mark the test</button> <button type="button" class="ghost sm" id="mark-no">Keep going</button></div>';
       $('#mark-yes').addEventListener('click', function () {
         if (S.timer.start) { S.test.time = Math.min(3600, Math.round((Date.now() - S.timer.start) / 1000)); S.timer.start = null; showTimer(); }
-        S.test.submitted = true; save(); lockExam(true); EXAM.forEach(badge); renderMarking(); updateToc();
+        S.test.submitted = true; save(); lockExam(true); EXAM.forEach(badge); examHl(true); renderMarking(); updateToc();
         document.getElementById('result-head').scrollIntoView();
       });
       $('#mark-no').addEventListener('click', function () { $('#markconfirm').innerHTML = ''; });
@@ -186,15 +298,17 @@ function renderMarking() {
       '. Each answer fold names the pattern in Part 3 that takes that question type apart.</p>' : '<p style="margin:0"><b>Full marks.</b></p>') +
     '<div class="actions" style="margin:0"><button type="button" class="ghost sm" id="retake">Take the test again</button><span id="retake-confirm"></span></div></div>';
   $('#retake').addEventListener('click', function () {
-    $('#retake-confirm').innerHTML = ' Clear all 40 answers? <button type="button" class="danger sm" id="retake-yes">Clear and restart</button> <button type="button" class="ghost sm" id="retake-no">Keep them</button>';
+    $('#retake-confirm').innerHTML = ' Clear all 40 answers and your highlights in the three passages? <button type="button" class="danger sm" id="retake-yes">Clear and restart</button> <button type="button" class="ghost sm" id="retake-no">Keep them</button>';
     $('#retake-yes').addEventListener('click', function () {
       EXAM.forEach(function (qa) { delete S.a[qa.dataset.q]; delete S.open[qa.dataset.q]; paint(qa); $('details.afold', qa).open = false; unbadge(qa); });
-      S.test = { submitted: false }; save(); lockExam(false); renderMarking(); updateToc();
+      S.test = { submitted: false }; examHl(false); [1, 2, 3].forEach(function (i) { clearUser(document.getElementById('passage-' + i)); }); save(); lockExam(false); renderMarking(); updateToc();
       document.getElementById('passage-1').scrollIntoView();
     });
     $('#retake-no').addEventListener('click', function () { $('#retake-confirm').innerHTML = ''; });
   });
 }
+
+function examHl(on) { [1, 2, 3].forEach(function (i) { var p = document.getElementById('passage-' + i); if (p && p._setHl) p._setHl(on); }); }
 
 /* ================================================================ optional 60-minute timer */
 var TIMER = $('#timer'), TT = $('#timer-t'), TSTART = $('#timer-start'), tick = null;

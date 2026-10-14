@@ -169,24 +169,75 @@ for box in soup.select(".box.get"):
         det.select_one(".foldbody").append(c.extract())
     box.replace_with(det)
 
-LEGEND = ('<span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span>')
-for psg in soup.select(".psg"):
-    if not psg.select(".hA, .hT, .hP"):
-        continue
-    psg["class"] = psg.get("class", []) + ["hl-off"]
-    row = frag(f'<div class="hlrow"><button type="button" class="ghost sm" data-hl>Show highlights</button>{LEGEND}</div>').div
-    lab = psg.select_one(".lab")
-    if lab:
-        lab.insert_after(row)
-    else:
-        psg.insert(0, row)
-
-# ---------------------------------------------------------------- 5. full test: passages, answer sheets, timer, marking
 exam_psgs = [d for d in part2.select(".psg") if "background:#fff" in d.get("style", "")]
 if len(exam_psgs) != 3:
     problems.append(f"expected 3 exam passages, found {len(exam_psgs)}")
 for i, d in enumerate(exam_psgs, 1):
     d["id"] = f"passage-{i}"
+
+# answer / trap / paraphrase highlights for the full-test passages (the PDF's exam copy has none)
+from exam_highlights import EXAM_HL
+
+
+def passage_paras(box):
+    """The passage paragraphs of an exam page: everything before the first 'Questions n-m' heading."""
+    out = []
+    for p in box.find_all("p"):
+        if re.match(r"Questions\s", text(p)):
+            break
+        out.append(p)
+    return out
+
+
+def phrase_re(phrase):
+    pat = re.escape(phrase).replace(r"\ ", r"\s+").replace("'", "['’]")
+    return re.compile(pat)
+
+
+covered = set()
+for n, cls, phrase, qnums in EXAM_HL:
+    rx = phrase_re(phrase)
+    nodes = [s for p in passage_paras(exam_psgs[n - 1]) for s in p.find_all(string=True) if rx.search(str(s))]
+    hits = sum(len(rx.findall(str(s))) for s in nodes)
+    if hits != 1:
+        problems.append(f"passage {n}: {phrase!r} found {hits} times inside one text run (needs exactly 1)")
+        continue
+    node = nodes[0]; s = str(node); m = rx.search(s)
+    span = soup.new_tag("span", attrs={"class": cls, "title": "Question" + ("s " if len(qnums) > 1 else " ") + ", ".join(map(str, qnums))})
+    span.string = m.group(0)
+    node.replace_with(NavigableString(s[:m.start()]), span, NavigableString(s[m.end():]))
+    covered |= set(qnums)
+if covered != set(range(1, 41)) and not problems:
+    problems.append(f"full test: no highlight for questions {sorted(set(range(1, 41)) - covered)}")
+
+# Patterns 21 and 23 re-use the passage of an earlier pattern: link back to it
+for sh in pat_sheets:
+    ref = next((x for x in sh.select(".box .lab, details.fold > summary") if re.search(r"from Pattern \d+", text(x))), None)
+    if ref:
+        n = re.search(r"from Pattern (\d+)", text(ref)).group(1)
+        box = ref.parent
+        box.insert_before(frag(f'<p class="small"><a href="#pat-{n}">↑ Go back to the passage in Pattern {n}</a>. '
+                               'This pattern uses that passage; press Show highlights there to see its answer lines.</p>'))
+
+# every passage gets a row: the answer-highlight switch (where there are any) and the reader's own highlighter
+LEGEND = ('<span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span>')
+for psg in soup.select(".psg"):
+    has = bool(psg.select(".hA, .hT, .hP"))
+    if has:
+        psg["class"] = psg.get("class", []) + ["hl-off"]
+    row = frag('<div class="hlrow">' + ('<button type="button" class="ghost sm" data-hl>Show highlights</button>' + LEGEND if has else '') +
+               '<span class="uhint">Select any words to highlight them in your own colour.</span>'
+               '<span class="uclear" hidden><button type="button" class="ghost sm" data-uclear>Clear my highlights</button></span></div>').div
+    lab = psg.select_one(".lab")
+    title = next((p for p in psg.find_all("p") if "text-align:center" in p.get("style", "")), None)
+    if lab:
+        lab.insert_after(row)
+    elif title:
+        title.insert_after(row)
+    else:
+        psg.insert(0, row)
+
+# ---------------------------------------------------------------- 5. full test: passages, answer sheets, timer, marking
 n = 0
 for h in part2.find_all("h2"):
     if "the answers, with the reason" in text(h).lower():

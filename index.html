@@ -181,6 +181,15 @@ details.fold > .foldbody > :last-child { margin-bottom: 0; }
 .totop { position: fixed; right: 18px; bottom: 18px; z-index: 20; background: var(--navy); color: var(--navy-ink); border: 0; padding: 9px 14px; font-size: 13.5px; font-weight: 600; letter-spacing: .5px; box-shadow: 0 2px 8px rgba(0,0,0,.35); text-decoration: none; font-family: var(--f-ui); }
 @media (max-width: 520px) { .timer { left: 8px; bottom: 8px; } .totop { right: 8px; bottom: 8px; } }
 [hidden] { display: none !important; }
+
+/* ---------- your own highlighter ---------- */
+mark.uh { color: inherit; padding: 0; cursor: pointer; }
+.uh-y { background: #FFE97A; } .uh-g { background: #B8E3AE; } .uh-p { background: #F7BCD0; } .uh-b { background: #BCDAF6; }
+.hlrow .uhint { font-size: 13px; color: var(--faint); }
+.hlrow .uclear { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 13.5px; }
+.hlbar { position: absolute; z-index: 30; display: flex; gap: 6px; background: var(--page); border: 1px solid var(--line); border-top: 3px solid var(--navy); padding: 6px; box-shadow: 0 3px 12px rgba(0,0,0,.25); font-family: var(--f-ui); }
+.hlbar .sw { width: 34px; height: 34px; border: 1px solid rgba(0,0,0,.25); padding: 0; }
+.hlbar .sw:hover { outline: 2px solid var(--navy); outline-offset: 1px; }
 </style>
 </head>
 <body>
@@ -287,30 +296,30 @@ time on the day.</p><div class="tablewrap"><table>
 <p>You can sit the whole thing under time — <b>60 minutes for all three passages</b>, no pausing
 — or read straight through to see how the questions are built. Either works. Passage 1 is worked
 below, then Passage 2, then Passage 3, with the answers after each one.</p>
-<div class="actions" id="timerbar"><button class="primary sm" id="timer-start" type="button">Start the 60-minute timer</button><span class="small">Optional. It keeps counting if you scroll, reload or close the page.</span></div></div><div class="box psg" id="passage-1" style="background:#fff;border:1px solid #bbb;border-left:1px solid #bbb">
+<div class="actions" id="timerbar"><button class="primary sm" id="timer-start" type="button">Start the 60-minute timer</button><span class="small">Optional. It keeps counting if you scroll, reload or close the page.</span></div></div><div class="box psg hl-off" id="passage-1" style="background:#fff;border:1px solid #bbb;border-left:1px solid #bbb">
 <p style="font-family:'Segoe UI',Arial,sans-serif;font-weight:bold;font-size:17.5px;margin-bottom:4.5px">READING PASSAGE 1</p>
 <p style="font-style:italic;font-size:15.9px;margin-bottom:18.0px">You should spend about 20 minutes on
 <b>Questions 1–13</b>, which are based on Reading Passage 1 below.</p>
-<p style="text-align:center;font-size:20.7px;font-weight:bold;margin:18.0px 0 13.5px 0">Bamboo</p>
+<p style="text-align:center;font-size:20.7px;font-weight:bold;margin:18.0px 0 13.5px 0">Bamboo</p><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>Bamboo is not a tree but a grass, and it behaves like one. Where an oak spends decades thickening
-its trunk, a bamboo culm emerges from the ground at close to its final diameter and simply extends
+its trunk, a bamboo culm <span class="hA" title="Question 1">emerges from the ground at close to its final diameter</span> and simply extends
 upward. Some tropical species lengthen by as much as ninety centimetres in a single day, and a culm
-reaches its full height within a few months. After that it never grows again. It only hardens, laying
+reaches its full height within a few months. <span class="hA" title="Question 1">After that it never grows again. It only hardens</span>, laying
 down silica in its walls over the following years.</p>
 <p>This habit has consequences for anyone harvesting it. A bamboo stand is not felled and replanted but
-cut selectively, culm by culm, with the youngest left standing. Cutters normally take culms of between
-three and six years: younger ones are too soft and contain too much starch, while older ones turn
-brittle. Because the underground rhizome system is untouched, a well-managed stand can be cut every
+cut selectively, culm by culm, with the youngest left standing. <span class="hA" title="Question 2">Cutters normally take culms of between
+three and six years</span>: younger ones are too soft and <span class="hA" title="Question 6">contain too much starch</span>, while older ones turn
+brittle. Because <span class="hA" title="Question 7">the underground rhizome system is untouched</span>, a well-managed stand can be cut every
 year indefinitely, and this is the origin of bamboo's reputation as a renewable material.</p>
 <p>That starch is also the plant's weakness. Untreated bamboo is attractive to powder-post beetles, and
-in humid conditions a pole may be reduced to dust within two or three years. Traditional practice dealt
-with this by leaching: culms were submerged in running water or buried in mud for several weeks, which
-washed the soluble sugars out of them. Modern producers more often use borax solutions, which are cheap
+in humid conditions a pole may be reduced to dust within two or three years. <span class="hA" title="Question 8">Traditional practice dealt
+with this by leaching</span>: culms were submerged in running water or buried in mud for several weeks, which
+<span class="hP" title="Question 8">washed the soluble sugars out of them</span>. <span class="hT" title="Question 3">Modern producers more often use borax solutions</span>, which are cheap
 and of low toxicity, though they wash out again in exposed positions.</p>
-<p>Structurally the material is remarkable. Its tensile strength along the grain exceeds that of mild
-steel by weight, and the hollow cylinder is an efficient shape in bending. But the anatomy that makes it
-strong lengthwise makes it weak across the grain. It splits readily, which is why traditional joints tie
-rather than nail. Engineers have found this the hardest property to design around, and it explains why
+<p>Structurally the material is remarkable. <span class="hA" title="Question 9">Its tensile strength along the grain exceeds that of mild
+steel by weight</span>, and the hollow cylinder is an efficient shape in bending. But <span class="hA" title="Question 4">the anatomy that makes it
+strong lengthwise makes it weak across the grain</span>. <span class="hP" title="Question 10">It splits readily</span>, which is why <span class="hA" title="Question 10">traditional joints tie
+rather than nail</span>. Engineers have found this the hardest property to design around, and it explains why
 bamboo has entered modern construction mainly in processed forms — laminated board, strand-woven
 flooring — rather than as whole poles.</p>
 <p>Flowering is the strangest thing about the plant. Most bamboos are monocarpic: they flower once, set
@@ -318,16 +327,16 @@ seed and die. The interval between flowerings can be extraordinarily long, sixty
 and more than a hundred in others, and all plants descended from the same original stock flower
 simultaneously wherever in the world they happen to be growing. In north-east India the flowering of one
 species every forty-eight years is followed by a plague of rats, which breed on the abundant seed and
-then move into the farmers' fields. The event of 2006 was anticipated and prepared for; earlier ones had
-caused famine.</p>
+then move into the farmers' fields. <span class="hA" title="Question 5">The event of 2006 was anticipated and prepared for</span>; <span class="hT" title="Question 5">earlier ones had
+caused famine</span>.</p>
 <p>The economic scale of the plant is easy to underestimate. Something over two billion people live in
-houses that use bamboo in some form. Yet almost none of this appears in forestry statistics, because
-bamboo is classified as a non-timber forest product and is often gathered outside any formal system.</p>
+houses that use bamboo in some form. Yet <span class="hP" title="Question 11">almost none of this appears in forestry statistics</span>, because
+<span class="hA" title="Question 11">bamboo is classified as a non-timber forest product</span> and is often gathered outside any formal system.</p>
 <p>The environmental claims made for it are sometimes overstated. A managed stand does capture carbon
-faster than most timber plantations, and it does so while yielding a crop every year. But much of that
-advantage disappears if the material is shipped halfway around the world. The honest case for bamboo is
-narrower than the promotional one. It is an excellent local material, best grown and used within a few
-hundred kilometres of where it stands.</p>
+faster than most timber plantations, and it does so while yielding a crop every year. But <span class="hP" title="Question 12">much of that
+advantage disappears</span> <span class="hA" title="Question 12">if the material is shipped halfway around the world</span>. The honest case for bamboo is
+narrower than the promotional one. It is an excellent local material, best grown and used <span class="hA" title="Question 13">within a few
+hundred kilometres of where it stands</span>.</p>
 <p style="font-family:'Segoe UI',Arial,sans-serif;font-weight:bold;font-size:16.7px;margin:27.0px 0 9.0px 0">Questions 1–5</p>
 <div style="border:1px solid #000;padding:13.5px 18.0px;margin-bottom:13.5px;font-size:15.9px">
 <p style="margin:0 0 9.0px 0"><i>Do the following statements agree with the information given in Reading Passage 1?</i></p>
@@ -473,59 +482,59 @@ the gaps were reworded; the answers were not.</li>
 <li><b>Two statements were FALSE because of a small detail:</b> a number range in question 2, a date in
 question 5. Numbers and dates are usually the trap, not the topic.</li>
 </ol>
-</div></details><div class="box psg" id="passage-2" style="background:#fff;border:1px solid #bbb;border-left:1px solid #bbb;page-break-before:always">
+</div></details><div class="box psg hl-off" id="passage-2" style="background:#fff;border:1px solid #bbb;border-left:1px solid #bbb;page-break-before:always">
 <p style="font-family:'Segoe UI',Arial,sans-serif;font-weight:bold;font-size:17.5px;margin-bottom:4.5px">READING PASSAGE 2</p>
 <p style="font-style:italic;font-size:15.9px;margin-bottom:18.0px">You should spend about 20 minutes on
 <b>Questions 14–26</b>, which are based on Reading Passage 2 below.</p>
-<p style="text-align:center;font-size:20.7px;font-weight:bold;margin:18.0px 0 13.5px 0">The rise and fall of the department store</p>
+<p style="text-align:center;font-size:20.7px;font-weight:bold;margin:18.0px 0 13.5px 0">The rise and fall of the department store</p><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p><b>A</b>   The department store was invented twice over, in Paris and in New York, within about
 a decade of each other in the middle of the nineteenth century. The Parisian version is usually credited
-to Aristide Boucicaut, who took over a small draper's shop and rebuilt it around three ideas that were
-then unusual: that goods should carry a fixed price, that the price should be marked on them, and that a
-customer could come in, look, and leave again without buying anything. Each of these abolished
-something. Fixed pricing ended haggling, and with it the assumption that the shopkeeper would judge what
+to Aristide Boucicaut, who took over a small draper's shop and <span class="hP" title="Question 14">rebuilt it around three ideas that were
+then unusual</span>: that goods should carry a fixed price, that the price should be marked on them, and that <span class="hA" title="Question 22">a
+customer could come in, look, and leave again without buying anything</span>. <span class="hA" title="Question 14">Each of these abolished
+something</span>. Fixed pricing ended haggling, and with it the assumption that the shopkeeper would judge what
 each customer could afford. Marked prices ended the need to ask. The right to browse ended the
 obligation that entering a shop had always carried.</p>
 <p><b>B</b>   The third of these mattered far beyond retailing. A respectable woman in 1860 had
 almost nowhere she could go alone in a city without attracting comment. The department store, by
-removing the obligation to buy, accidentally created a public interior in which she could spend an
-afternoon unaccompanied and unremarked. Stores understood what they had done and leaned into it, adding
-tea rooms, writing rooms, lavatories and eventually crèches. The novelist Émile Zola, who studied
-Boucicaut's operation closely before writing about it, called the store a machine for selling, but the
+removing the obligation to buy, <span class="hA" title="Question 15">accidentally created a public interior in which she could spend an
+afternoon unaccompanied and unremarked</span>. Stores understood what they had done and leaned into it, adding
+tea rooms, writing rooms, lavatories and eventually crèches. The novelist Émile Zola, <span class="hT" title="Questions 15, 23">who studied
+Boucicaut's operation closely</span> before writing about it, <span class="hA" title="Question 23">called the store a machine for selling</span>, but the
 machine's most durable product may have been social rather than commercial.</p>
-<p><b>C</b>   The buildings were designed to be looked at. Plate glass, which became affordable at
+<p><b>C</b>   <span class="hA" title="Question 16">The buildings were designed to be looked at</span>. Plate glass, which became affordable at
 precisely the right moment, turned the street frontage into a stage; cast iron allowed interior courts
 that rose four or five storeys to a glazed roof; electric light, once it arrived, made the interior
-brighter than the daylight outside. The escalator, introduced for practical reasons, turned out to
+brighter than the daylight outside. <span class="hT" title="Question 16">The escalator, introduced for practical reasons</span>, turned out to
 matter for a different one: unlike a lift, it delivered a continuous stream of customers past
 merchandise they had not intended to see. None of this was decoration. Every element was there to extend
 the time a visitor spent inside.</p>
-<p><b>D</b>   Underneath the spectacle the economics were plain and rather fragile. A department
-store made a low margin on each item and depended entirely on volume, which meant it needed an enormous
-number of people passing its doors every day. That in turn meant a dense city centre and, above all,
-public transport. The great stores of the period were almost always built within a few hundred metres of
+<p><b>D</b>   Underneath the spectacle the economics were plain and rather fragile. <span class="hA" title="Question 17">A department
+store made a low margin on each item and depended entirely on volume</span>, which meant it needed an enormous
+number of people passing its doors every day. That in turn meant a dense city centre and, <span class="hA" title="Questions 17, 24">above all,
+public transport</span>. The great stores of the period were almost always built within a few hundred metres of
 a railway terminus, a tram junction or, later, an underground station. The model worked because the city
 delivered the crowd; the store did not have to.</p>
-<p><b>E</b>   This is why the car was so damaging. As populations moved outward after 1945, the
-crowd stopped arriving by tram and started arriving by road, and the city centre that had been the
-store's greatest asset became its greatest liability: expensive, congested and short of parking. The
-shopping mall was the direct answer. Developers discovered that they could guarantee footfall by signing
-a large store as an anchor tenant on favourable terms, then letting the smaller units around it at high
+<p><b>E</b>   This is why the car was so damaging. As populations moved outward after 1945, <span class="hT" title="Question 18">the
+crowd stopped arriving by tram and started arriving by road</span>, and the city centre that had been the
+store's greatest asset became its greatest liability: expensive, congested and short of parking. <span class="hA" title="Question 18">The
+shopping mall was the direct answer</span>. Developers discovered that they could guarantee footfall by <span class="hA" title="Question 25">signing
+a large store as an anchor tenant on favourable terms</span>, then letting the smaller units around it at high
 rents to retailers who wanted the traffic the anchor generated. Department stores accepted these deals,
 and in doing so converted themselves from destinations into infrastructure for somebody else's
 business.</p>
 <p><b>F</b>   The internet finished what the mall had begun, though not in the way that is usually
-described. Online retailers did not simply undercut the stores; they removed the last advantage the
-stores had, which was selection. A shop with a hundred thousand square feet can hold a great deal, but it
+described. Online retailers did not simply undercut the stores; <span class="hA" title="Question 19">they removed the last advantage the
+stores had, which was selection</span>. A shop with a hundred thousand square feet can hold a great deal, but it
 cannot hold everything, and once customers could compare a full range from a phone while standing in the
-aisle, the store became a showroom for a purchase made elsewhere. Retail analyst Dana Telford has argued
-that no amount of cost-cutting could have answered this, because the competition was not on price but on
+aisle, the store became a showroom for a purchase made elsewhere. <span class="hT" title="Question 21">Retail analyst Dana Telford has argued</span>
+that <span class="hA" title="Question 19">no amount of cost-cutting could have answered this</span>, because the competition was not on price but on
 range. Marc Levin takes a different view, pointing out that the American chains were carrying two or
-three times the floor space per customer that their European equivalents were, and that the problem was
-one of over-expansion which the internet merely exposed.</p>
-<p><b>G</b>   What survives suggests that both may be partly right. The stores that have done best
-are the ones that stopped trying to sell everything and became something other than shops: buildings
-people visit for the food hall, the restaurants, the events, with merchandise arranged around the visit
+three times the floor space per customer that their European equivalents were, and that <span class="hA" title="Question 21">the problem was
+one of over-expansion which the internet merely exposed</span>.</p>
+<p><b>G</b>   What survives suggests that both may be partly right. <span class="hA" title="Question 20">The stores that have done best
+are the ones that stopped trying to sell everything and became something other than shops</span>: buildings
+people visit for <span class="hA" title="Question 26">the food hall</span>, <span class="hT" title="Question 26">the restaurants</span>, the events, with merchandise arranged around the visit
 rather than the other way round. It is, in a sense, a return to Boucicaut. He too was selling an
 afternoon rather than a product, and he too understood that the goods were not the reason people
 came.</p>
@@ -701,56 +710,56 @@ Boucicaut. Whenever that happens, find the verb and ask who is doing it.</li>
 <li><b>Matching questions are not in passage order.</b> Questions 21–23 point at paragraphs F, A
 and B, in that order. Only the headings and the completion questions run in sequence.</li>
 </ol>
-</div></details><div class="box psg" id="passage-3" style="background:#fff;border:1px solid #bbb;border-left:1px solid #bbb;page-break-before:always">
+</div></details><div class="box psg hl-off" id="passage-3" style="background:#fff;border:1px solid #bbb;border-left:1px solid #bbb;page-break-before:always">
 <p style="font-family:'Segoe UI',Arial,sans-serif;font-weight:bold;font-size:17.5px;margin-bottom:4.5px">READING PASSAGE 3</p>
 <p style="font-style:italic;font-size:15.9px;margin-bottom:18.0px">You should spend about 20 minutes on
 <b>Questions 27–40</b>, which are based on Reading Passage 3 below.</p>
-<p style="text-align:center;font-size:20.7px;font-weight:bold;margin:18.0px 0 13.5px 0">Why we forget</p>
-<p><b>A</b>   Forgetting has always been described as a failure. The language gives it away: memory
+<p style="text-align:center;font-size:20.7px;font-weight:bold;margin:18.0px 0 13.5px 0">Why we forget</p><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
+<p><b>A</b>   Forgetting has always been described as a failure. <span class="hA" title="Question 40">The language gives it away</span>: memory
 is something we <i>lose</i>, a name <i>escapes</i> us, a fact <i>slips</i> our mind. The research
 tradition followed the language. When Hermann Ebbinghaus sat down in the 1880s to memorise lists of
 nonsense syllables and then test himself at intervals, he produced the forgetting curve — a steep
-initial drop followed by a long shallow tail — and the curve was read, for the next century, as a
-picture of decay. Something was leaking out of the system, and the interesting question was how to stop
+initial drop followed by a long shallow tail — and <span class="hA" title="Questions 27, 31">the curve was read, for the next century, as a
+picture of decay</span>. Something was leaking out of the system, and the interesting question was how to stop
 it.</p>
-<p><b>B</b>   That reading is now looking doubtful, and the reason is that forgetting turns out to
-be expensive. Work over the past fifteen years has shown that it is not a passive fading but an active,
-energy-consuming process with its own machinery. Particular molecules are recruited to dismantle the
+<p><b>B</b>   <span class="hA" title="Question 27">That reading is now looking doubtful</span>, and the reason is that <span class="hP" title="Question 35">forgetting turns out to
+be expensive</span>. Work over the past fifteen years has shown that it is <span class="hA" title="Question 32">not a passive fading but an active,
+energy-consuming process</span> with its own machinery. Particular molecules are recruited to dismantle the
 connections between neurons; block them, and animals retain memories they would normally have shed. A
-system does not evolve a dedicated mechanism, and then pay to run it, in order to perform worse. If the
-brain is spending resources to forget, forgetting is doing something for it.</p>
-<p><b>C</b>   What it appears to be doing is keeping memory useful rather than complete. The
+system does not evolve a dedicated mechanism, and then pay to run it, in order to perform worse. <span class="hA" title="Question 35">If the
+brain is spending resources to forget, forgetting is doing something for it</span>.</p>
+<p><b>C</b>   What it appears to be doing is <span class="hA" title="Question 33">keeping memory useful rather than complete</span>. The
 purpose of remembering is not to archive the past but to act sensibly in the present, and for that
-purpose a great deal of detail is not merely surplus but harmful. If you park in a different space each
-morning, the memory that matters is today's, and yesterday's forty locations are interference to be
-cleared. Generalising works the same way: to recognise a chair you have never seen before, the specific
-chairs must blur into a category, and blurring is a form of forgetting. On this account, a memory system
-that retained everything would not be a better memory system. It would be a worse one.</p>
+purpose a great deal of detail is not merely surplus but harmful. <span class="hA" title="Question 38">If you park in a different space each
+morning</span>, the memory that matters is today's, and <span class="hA" title="Question 38">yesterday's forty locations are interference to be
+cleared</span>. Generalising works the same way: to recognise a chair you have never seen before, the specific
+chairs must blur into a category, and blurring is a form of forgetting. On this account, <span class="hA" title="Question 28">a memory system
+that retained everything would not be a better memory system. It would be a worse one</span>.</p>
 <p><b>D</b>   The strongest evidence comes from people who approximate that condition. A small
 number of individuals have what is called highly superior autobiographical memory, and can report,
 accurately and without effort, what they did and what the weather was like on an arbitrary date decades
-ago. It is tempting to envy them. But the ability is oddly narrow — it does not extend to learning
-vocabulary or passing examinations, and on standard memory tests these individuals perform
+ago. <span class="hT" title="Question 29">It is tempting to envy them</span>. But <span class="hA" title="Question 36">the ability is oddly narrow</span> — <span class="hA" title="Questions 29, 36">it does not extend to learning
+vocabulary or passing examinations</span>, and on standard memory tests these individuals perform
 unremarkably. Several describe the experience as intrusive: a chance remark summons a day from thirty
 years earlier in full and unwanted detail, and old grievances do not fade because the emotional colour
 comes back with everything else.</p>
 <p><b>E</b>   Sleep is where a good deal of the work is done, and it does two apparently
 contradictory jobs at once. Memories tagged as significant during the day are replayed and strengthened;
-at the same time the overall level of synaptic connection, which has risen throughout the waking hours,
-is scaled back down. Giulio Tononi, whose group has developed this account, describes the effect as
-improving the signal-to-noise ratio — the important traces are not made louder so much as
-everything else is made quieter. Whether the two processes are genuinely separate or two descriptions of
-a single mechanism is still argued about, and the evidence does not yet settle it.</p>
-<p><b>F</b>   None of this means that forgetting is always benign, and the argument is easy to push
-too far. The mechanisms that clear a car park also clear things we would rather keep, and in the
+at the same time the overall level of synaptic connection, <span class="hT" title="Question 34">which has risen throughout the waking hours</span>,
+<span class="hA" title="Question 34">is scaled back down</span>. Giulio Tononi, whose group has developed this account, describes the effect as
+improving the signal-to-noise ratio — <span class="hT" title="Question 37">the important traces are not made louder so much as
+everything else is made quieter</span>. <span class="hA" title="Question 37">Whether the two processes are genuinely separate or two descriptions of
+a single mechanism is still argued about</span>, and the evidence does not yet settle it.</p>
+<p><b>F</b>   <span class="hA" title="Question 39">None of this means that forgetting is always benign, and the argument is easy to push
+too far</span>. The mechanisms that clear a car park also clear things we would rather keep, and in the
 dementias they are not operating in some adaptive fashion but breaking down altogether. The claim is
 narrower: that in a healthy brain, forgetting is a regulated process which has been selected for, and
 that treating every instance of it as a malfunction is a mistake about what memory is for.</p>
 <p><b>G</b>   The practical consequence is a change of question. Educational advice has
-concentrated for a century on how to retain more — on repetition, mnemonics, spaced practice. Very
-little attention has gone to what a learner should be encouraged to let go, or to the possibility that
-some of the difficulty people have in acquiring new patterns is the persistence of old ones. That seems
-to me the more interesting problem, and it has barely been looked at.</p>
+concentrated for a century on how to retain more — on repetition, mnemonics, spaced practice. <span class="hA" title="Question 30">Very
+little attention has gone to what a learner should be encouraged to let go</span>, or to the possibility that
+some of the difficulty people have in acquiring new patterns is the persistence of old ones. <span class="hA" title="Question 30">That seems
+to me the more interesting problem, and it has barely been looked at</span>.</p>
 <p style="font-family:'Segoe UI',Arial,sans-serif;font-weight:bold;font-size:16.7px;margin:27.0px 0 9.0px 0">Questions 27–30</p>
 <div style="border:1px solid #000;padding:13.5px 18.0px;margin-bottom:13.5px;font-size:15.9px">
 <p style="margin:0 0 9.0px 0"><i>Do the following statements agree with the claims of the writer in Reading Passage 3?</i></p>
@@ -1006,7 +1015,7 @@ make this impossible?</b> If you can, FALSE. If the best you can say is "it does
 that", NOT GIVEN.</p>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — the urban heat island</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — the urban heat island</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>The temperature gap between a city and the countryside around it is not a uniform effect. It is
 strongest on still, cloudless nights, when <span class="hA">rural land radiates its heat away quickly
 while brick, asphalt and concrete go on releasing warmth absorbed during the day</span>.
@@ -1086,7 +1095,7 @@ certainly the whole question, and the rest of the sentence will match the passag
 </ul>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — seed banks</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — seed banks</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>Seed banks are often described as insurance policies for agriculture. The reality is more modest.
 Of the collections registered worldwide, <span class="hA">the <span class="hT">majority</span> hold
 fewer than ten thousand accessions</span>, and <span class="hA"><span class="hT">many</span>
@@ -1175,7 +1184,7 @@ being compared.</li>
 GIVEN.</p>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — Roman concrete</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — Roman concrete</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p><span class="hA">Roman harbour concrete has survived two thousand years of wave action,
 <span class="hP">while</span> modern Portland-cement structures placed in the same waters often show
 serious decay within fifty years.</span> The reason, identified by researchers analysing cores drilled
@@ -1254,7 +1263,7 @@ door?</b></p>
 </ul>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — sleep and memory</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — sleep and memory</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p><span class="hP">Participants who spent longer in slow-wave sleep on the night after training
 performed better on a recall test the following morning</span>, and the association held across three
 separate cohorts. <span class="hA">Whether the relationship is causal remains unsettled.</span> Slow-wave
@@ -1338,7 +1347,7 @@ contradicted makes the whole thing FALSE</b>, no matter how well the rest matche
 </ul>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — song learning in sparrows</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — song learning in sparrows</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>The white-crowned sparrow acquires its song during <span class="hA">a sensitive period in its first
 summer</span>. Birds reared in isolation produce a crude, unstructured warble. If, however,
 <span class="hA">they hear recordings of adult song during that window — <span class="hP">even for
@@ -1415,7 +1424,7 @@ extreme word have to clash with? Then go and look for it.</p>
 </ul>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — polymetallic nodules</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — polymetallic nodules</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>Polymetallic nodules lie scattered across <span class="hA">abyssal plains at depths of four to six
 kilometres</span>, built up over millions of years as dissolved metals
 <span class="hA">precipitate around a nucleus — a shark's tooth, a fragment of shell</span>. They
@@ -1497,7 +1506,7 @@ it?</b></p>
 <p>And write <b>YES / NO</b>, never TRUE / FALSE. Writing TRUE here scores zero.</p>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — open-plan offices</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — open-plan offices</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p><span class="hA">The case for the open-plan office was always thinner than its advocates
 claimed.</span> <span class="hT">Proponents such as the designer Elena Roth argued that removing walls
 would multiply spontaneous encounters and therefore ideas.</span> When researchers finally measured
@@ -1589,7 +1598,7 @@ yet</i>. Questions are built on the half that was admitted.</p>
 <p>The material before the turn is being given away. The writer's actual point is after it.</p>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — machine translation</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — machine translation</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>Predictions that machine translation would end the need for human translators have been made,
 confidently, for six decades. <span class="hA">They may finally be approaching the truth in narrow
 domains: weather bulletins, product listings, patent abstracts.</span> Elsewhere the picture is less
@@ -1680,7 +1689,7 @@ ignore most of the paragraph, you have picked a detail.</li>
 </ol>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — the coming of railway time</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — the coming of railway time</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p><b>A</b>   <span class="hA">Until the middle of the nineteenth century, every British town kept
 its own time, set by the sun at local noon.</span> Bristol ran about ten minutes behind London, Plymouth
 about sixteen. <span class="hA">Nobody found this inconvenient, because nothing moved fast enough for
@@ -1717,7 +1726,7 @@ official. It demonstrates confusion, not legal reform.</li>
 </ol>
 </div></details>
 <div class="box psg" style="background:#F4F7FA;border-color:#cfdce6;border-left-color:#2C6E9B">
-<span class="lab" style="color:#1f5d87">List of headings</span>
+<span class="lab" style="color:#1f5d87">List of headings</span><div class="hlrow"><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p style="margin:0"><b>i</b> The courts step in to define legal time  · 
 <b>ii</b> Why local time was adequate before the railways  · 
 <b>iii</b> Public resistance to a standard imposed from outside  · 
@@ -1788,7 +1797,7 @@ heading to that.</li>
 </ol>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — the coffee trade</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — the coffee trade</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p><b>D</b>   <span class="hT">Of the price paid for a cup of coffee in a European city, the
 grower who produced the beans receives something close to one per cent.</span> The figure is often
 quoted as evidence of exploitation, and it is certainly evidence of something,
@@ -1820,7 +1829,7 @@ negotiated individually. It does not say prices are volatile. Those are differen
 </ol>
 </div></details>
 <div class="box psg" style="background:#F4F7FA;border-color:#cfdce6;border-left-color:#2C6E9B">
-<span class="lab" style="color:#1f5d87">List of headings</span>
+<span class="lab" style="color:#1f5d87">List of headings</span><div class="hlrow"><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p style="margin:0"><b>i</b> How much of the retail price reaches the farm  · 
 <b>ii</b> Where the value in coffee is actually created  · 
 <b>iii</b> The volatility of the futures market  · 
@@ -1875,7 +1884,7 @@ does not — where the writer agrees with something at length and then overturns
 and last sentence, the heading must describe where it arrived, not where it set off.</p>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — vertical farming</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — vertical farming</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p><b>F</b>   The promise of the vertical farm is easy to state and, on its own terms, real.
 <span class="hT">Stacked growing trays in a converted warehouse can yield many times more lettuce per
 square metre of floor than a field; the crop is grown without pesticides, in a climate that does not
@@ -1903,7 +1912,7 @@ savings everywhere else". The paragraph exists to deliver that.</li>
 </ol>
 </div></details>
 <div class="box psg" style="background:#F4F7FA;border-color:#cfdce6;border-left-color:#2C6E9B">
-<span class="lab" style="color:#1f5d87">List of headings</span>
+<span class="lab" style="color:#1f5d87">List of headings</span><div class="hlrow"><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p style="margin:0"><b>i</b> The advantages of growing crops indoors  · 
 <b>ii</b> Dramatic reductions in water consumption  · 
 <b>iii</b> An energy problem that undermines the case  · 
@@ -1954,7 +1963,7 @@ similar and need opposite reading.</p>
 you should do this group <b>last</b>, after the other questions have taken you through the text.</p>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — recycling glass</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — recycling glass</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p><b>A</b>   Glass is, in principle, the ideal material for a circular economy.
 <span class="hT">It can be melted and reformed without any loss of quality, indefinitely, which is not
 true of paper or of most plastics.</span> <span class="hA">Container glass has been collected for
@@ -2056,7 +2065,7 @@ answers:</p>
 </table></div>
 <p>Ten seconds on the instructions regularly saves two minutes.</p>
 </div>
-<details class="fold get box"><summary>Use the glass passage from Pattern 12 <span class="hint">open after you answer</span></summary><div class="foldbody">
+<p class="small"><a href="#pat-12">↑ Go back to the passage in Pattern 12</a>. This pattern uses that passage; press Show highlights there to see its answer lines.</p><details class="fold get box"><summary>Use the glass passage from Pattern 12 <span class="hint">open after you answer</span></summary><div class="foldbody">
 
 <p>Turn back one page. The instruction for these three questions reads:
 <b>"Which paragraph contains the following information? Write the correct letter A–D.
@@ -2113,7 +2122,7 @@ work Y cites…</i></p>
 in the margin for what that person thinks. Then the questions answer themselves.</p>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — why we yawn</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — why we yawn</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>Yawning is universal among vertebrates and almost entirely unexplained. The oldest proposal, that a
 yawn corrects a shortage of oxygen, was tested in the 1980s and failed.</p>
 <p>Attention has since turned to temperature. <b>Andrew Gallup</b> has argued that a yawn draws cool air
@@ -2147,7 +2156,7 @@ answer in this question type.</li>
 </ol>
 </div></details>
 <div class="box psg" style="background:#F4F7FA;border-color:#cfdce6;border-left-color:#2C6E9B">
-<span class="lab" style="color:#1f5d87">List of people</span>
+<span class="lab" style="color:#1f5d87">List of people</span><div class="hlrow"><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p style="margin:0"><b>A</b> Andrew Gallup    <b>B</b> Ronald Baenninger   
 <b>C</b> Molly Helt    <b>D</b> James Anderson</p>
 </div>
@@ -2216,7 +2225,7 @@ beside each one. Then use the verb to decide what that mention can support:</p>
 </table></div>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — the Antikythera mechanism</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — the Antikythera mechanism</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>When divers recovered a corroded lump of bronze from a Roman-era wreck in 1901, it was catalogued and
 ignored for half a century. <b>Derek de Solla Price</b> was the first to treat it seriously as a machine.
 Working from photographs in the 1950s, he counted the teeth on the visible gears and concluded that the
@@ -2251,7 +2260,7 @@ receiving it.</li>
 </ol>
 </div></details>
 <div class="box psg hl-off" style="background:#F4F7FA;border-color:#cfdce6;border-left-color:#2C6E9B">
-<span class="lab" style="color:#1f5d87">List of people — <span class="hT">NB You may use any letter more than once</span></span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab" style="color:#1f5d87">List of people — <span class="hT">NB You may use any letter more than once</span></span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p style="margin:0"><b>A</b> Derek de Solla Price    <b>B</b> Michael Wright   
 <b>C</b> Tony Freeth</p>
 </div>
@@ -2314,7 +2323,7 @@ my answer?"</p>
 element swapped; the right idea overstated; and plausible but never actually stated.</p>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — the waggle dance</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — the waggle dance</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>A honeybee returning from a productive food source performs a figure-of-eight dance on the vertical
 surface of the comb. <span class="hA">The straight run through the middle encodes two quantities: its
 duration is proportional to the distance of the source, and its angle from vertical corresponds to the
@@ -2403,7 +2412,7 @@ a piece of evidence always serves the claim sitting next to it.</p>
 rather than sitting in one. You must still be able to point at the evidence.</p>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — what GDP measures</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — what GDP measures</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>Gross domestic product was designed in the 1930s to measure the output of an industrialising economy
 preparing for war, and at that job it remains excellent. <span class="hA">Its awkwardness elsewhere is
 not a defect but a consequence of the design.</span> A forest felled for timber enters the accounts as
@@ -2488,7 +2497,7 @@ choosing too many.</li>
 </ul>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — desalination and its by-product</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — desalination and its by-product</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>Reverse-osmosis desalination now supplies drinking water to more than three hundred million people.
 <span class="hP">The energy required has fallen by roughly two-thirds since the 1980s, largely through
 pressure-exchange devices that recover energy from the outgoing brine stream.</span>
@@ -2556,7 +2565,7 @@ adjective. After a preposition you need a noun, never a verb.</li>
 </ol>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — the tunnelling shield</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — the tunnelling shield</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>Marc Brunel patented the tunnelling shield in 1818 after studying the shipworm, a mollusc that bores
 through submerged oak. Brunel's machine worked on the same principle. <span class="hA">A rectangular
 iron frame, divided into thirty-six cells, was pressed forward against the face of the excavation.</span>
@@ -2640,7 +2649,7 @@ about this type: find the first gap, and the next one is a sentence or two furth
 <p>Everything <b>around</b> the gap is reworded. The word <b>in</b> the gap is not. It is lifted exactly.</p>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — the shipping container</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — the shipping container</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>Malcom McLean, who ran a trucking company, was not interested in ships. He was interested in the
 hours his drivers spent idle at the dockside while cargo was loaded piece by piece,
 <span class="hA">a process known as break-bulk handling</span>. His answer, launched in 1956, was
@@ -2668,7 +2677,7 @@ always Y.</li>
 </div></details>
 <p class="small"><b>Instruction for Q59–62:</b> Choose <b>NO MORE THAN TWO WORDS</b> from the
 passage for each answer.</p>
-<div class="box psg" style="background:#F4F7FA;border-color:#cfdce6;border-left-color:#2C6E9B">
+<div class="box psg" style="background:#F4F7FA;border-color:#cfdce6;border-left-color:#2C6E9B"><div class="hlrow"><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p style="margin:0">McLean's concern was not shipping itself but the delay imposed on his drivers by
 <b>59 ________</b> handling. From 1956 he began lifting complete <b>60 ________</b> onto vessels, and
 later developed a standard steel box. The unions objected because the innovation destroyed jobs, and
@@ -2736,7 +2745,7 @@ halves your options per gap.</li>
 </ol>
 <p>The spare words are not filler. Each is a near-miss aimed at a particular gap.</p>
 </div>
-<details class="fold get box"><summary>Use the desalination passage from Pattern 18 <span class="hint">open after you answer</span></summary><div class="foldbody">
+<p class="small"><a href="#pat-18">↑ Go back to the passage in Pattern 18</a>. This pattern uses that passage; press Show highlights there to see its answer lines.</p><details class="fold get box"><summary>Use the desalination passage from Pattern 18 <span class="hint">open after you answer</span></summary><div class="foldbody">
 
 <p>Turn back two pages. The sentences you need are: "The energy required has fallen by roughly
 two-thirds"; "pressure-exchange devices that <b>recover</b> energy from the outgoing brine stream"; "it
@@ -2745,7 +2754,7 @@ sinks and can <b>deoxygenate</b> the seabed"; "have not yet proved <b>economic</
 You have to read what it says and name the quality yourself. That is the whole difficulty of this
 type.</p>
 </div></details>
-<div class="box psg" style="background:#F4F7FA;border-color:#cfdce6;border-left-color:#2C6E9B">
+<div class="box psg" style="background:#F4F7FA;border-color:#cfdce6;border-left-color:#2C6E9B"><div class="hlrow"><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p style="margin:0 0 13.5px 0">Since the 1980s reverse osmosis has become substantially more
 <b>63 ________</b>, chiefly because modern plants are able to <b>64 ________</b> energy from the
 outgoing brine. The brine that remains is, however, <b>65 ________</b> to life on the seabed close to the
@@ -2817,7 +2826,7 @@ verb phrases, your answer is a verb phrase too.</li>
 <p>Tables also run in passage order, row by row, left to right.</p>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — three fibres</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — three fibres</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>Three fibres dominated the early textile trade. <span class="hA">Flax, spun into linen, was
 cultivated in the Nile valley from at least 5000 BC; it is exceptionally strong when wet, which
 recommended it for sailcloth, though it creases very badly.</span> <span class="hA">Cotton,
@@ -2906,7 +2915,7 @@ answers a question outright.</p>
 <p>Then look at what the beginning actually demands — <i>differed because</i>, <i>opposed
 because</i>, <i>concern was</i>. Each asks for a particular relationship, not just a related fact.</p>
 </div>
-<details class="fold get box"><summary>Use the shipping container passage from Pattern 20 <span class="hint">open after you answer</span></summary><div class="foldbody">
+<p class="small"><a href="#pat-20">↑ Go back to the passage in Pattern 20</a>. This pattern uses that passage; press Show highlights there to see its answer lines.</p><details class="fold get box"><summary>Use the shipping container passage from Pattern 20 <span class="hint">open after you answer</span></summary><div class="foldbody">
 
 <p>Turn back three pages. The sentences you need are about McLean's original concern, what made the
 steel box different, and why the unions objected.</p>
@@ -2914,7 +2923,7 @@ steel box different, and why the unions objected.</p>
 ("the box would eliminate most of their members' jobs") and what <i>actually happened</i> ("employment
 fell by more than three-quarters"). Those are two different things, one sentence apart.</p>
 </div></details>
-<div class="box psg" style="background:#F4F7FA;border-color:#cfdce6;border-left-color:#2C6E9B">
+<div class="box psg" style="background:#F4F7FA;border-color:#cfdce6;border-left-color:#2C6E9B"><div class="hlrow"><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p style="margin:0 0 9.0px 0"><b>72</b>   Malcom McLean's original concern was<br/>
 <b>73</b>   The standardised steel box differed from what came before because<br/>
 <b>74</b>   The dockworkers' unions opposed containerisation because</p>
@@ -2980,7 +2989,7 @@ and tell you what not to repeat. Then follow the arrows and match them to sequen
 full sentence.</p>
 </div>
 <div class="box psg hl-off">
-<span class="lab">Passage — inside a reverse-osmosis plant</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span></div>
+<span class="lab">Passage — inside a reverse-osmosis plant</span><div class="hlrow"><button class="ghost sm" data-hl="" type="button">Show highlights</button><span class="legend"><span class="hA">answer</span><span class="hT">trap</span><span class="hP">paraphrase</span></span><span class="uhint">Select any words to highlight them in your own colour.</span><span class="uclear" hidden=""><button class="ghost sm" data-uclear="" type="button">Clear my highlights</button></span></div>
 <p>Seawater drawn from the intake is first <span class="hA">screened and dosed with anti-scalant</span>,
 a chemical that prevents mineral deposits forming on the membranes downstream; this stage is known as
 pre-treatment. A high-pressure pump then forces the treated feed against a semi-permeable membrane,
@@ -3146,7 +3155,7 @@ function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&
 
 /* ================================================================ saved state (this browser only) */
 var KEY = 'ielts-reading-lab-v1';
-function fresh() { return { a: {}, open: {}, hl: {}, test: { submitted: false }, timer: { start: null } }; }
+function fresh() { return { a: {}, open: {}, hl: {}, uh: {}, test: { submitted: false }, timer: { start: null } }; }
 var S = fresh();
 try { var raw = localStorage.getItem(KEY); if (raw) { var got = JSON.parse(raw); for (var k in S) if (got[k]) S[k] = got[k]; } } catch (e) {}
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
@@ -3255,6 +3264,118 @@ PSGS.forEach(function (p, i) {
   p._setHl = function (on) { if (on) S.hl[i] = true; else delete S.hl[i]; set(on); };
 });
 
+/* ================================================================ your own highlighter
+   Select words in a passage, pick a colour. Marks are stored as character offsets in the passage text
+   (the controls row is skipped), so they come back exactly after a reload. */
+if (!S.uh) S.uh = {};
+var COLORS = [['y', 'Yellow'], ['g', 'Green'], ['p', 'Pink'], ['b', 'Blue']];
+var BAR = document.createElement('div');
+BAR.className = 'hlbar'; BAR.hidden = true; BAR.setAttribute('role', 'toolbar'); BAR.setAttribute('aria-label', 'Highlight');
+document.body.appendChild(BAR);
+function textNodes(psg) {
+  var out = [], w = document.createTreeWalker(psg, NodeFilter.SHOW_TEXT, { acceptNode: function (n) {
+    return n.parentNode.closest('.hlrow, button') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; } });
+  while (w.nextNode()) out.push(w.currentNode);
+  return out;
+}
+function offsetOf(psg, node, off) {
+  var pre = document.createRange(), pos = 0;
+  pre.setStart(psg, 0); pre.setEnd(node, off);
+  textNodes(psg).forEach(function (n) { if (n === node) pos += off; else if (pre.intersectsNode(n)) pos += n.length; });
+  return pos;
+}
+function unpaint(psg) {
+  $$('mark.uh', psg).forEach(function (m) { var p = m.parentNode; while (m.firstChild) p.insertBefore(m.firstChild, m); p.removeChild(m); p.normalize(); });
+}
+function paintUser(psg) {
+  unpaint(psg);
+  var items = S.uh[psg.dataset.pi] || [];
+  items.forEach(function (it) {
+    var pos = 0;
+    textNodes(psg).forEach(function (n) {
+      var a = pos, b = pos + n.length; pos = b;
+      if (b <= it.s || a >= it.e || !n.nodeValue.trim() || n.parentNode === psg) return;
+      var from = Math.max(it.s - a, 0), to = Math.min(it.e - a, n.length);
+      if (to <= from) return;
+      var mid = n; if (from > 0) mid = n.splitText(from);
+      if (to - from < mid.length) mid.splitText(to - from);
+      var m = document.createElement('mark'); m.className = 'uh uh-' + it.c; m.dataset.u = it.id; m.title = 'Your highlight: tap to remove';
+      mid.parentNode.insertBefore(m, mid); m.appendChild(mid);
+    });
+  });
+  var c = $('.uclear', psg); if (c) { c.hidden = !items.length; var cc = $('.uconfirm', psg); if (cc) cc.remove(); }
+}
+var PSGS_U = $$('.psg');
+PSGS_U.forEach(function (p, i) { p.dataset.pi = i; paintUser(p); });
+var pending = null, removing = null;
+function placeBar(rect) {
+  BAR.hidden = false;
+  var w = BAR.offsetWidth, x = Math.min(Math.max(rect.left + rect.width / 2 - w / 2 + window.scrollX, window.scrollX + 8), window.scrollX + document.documentElement.clientWidth - w - 8);
+  BAR.style.left = x + 'px'; BAR.style.top = (rect.bottom + window.scrollY + 10) + 'px';
+}
+function hideBar() { BAR.hidden = true; pending = null; removing = null; }
+function showColours(range, psg) {
+  pending = { range: range.cloneRange(), psg: psg }; removing = null;
+  BAR.innerHTML = COLORS.map(function (c) { return '<button type="button" class="sw uh-' + c[0] + '" data-c="' + c[0] + '" aria-label="' + c[1] + '" title="' + c[1] + '"></button>'; }).join('');
+  placeBar(range.getBoundingClientRect());
+}
+var selTimer = null;
+document.addEventListener('selectionchange', function () {
+  clearTimeout(selTimer);
+  selTimer = setTimeout(function () {
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.rangeCount) { if (pending) hideBar(); return; }
+    var r = sel.getRangeAt(0), anc = r.commonAncestorContainer.nodeType === 3 ? r.commonAncestorContainer.parentNode : r.commonAncestorContainer;
+    var psg = anc.closest && anc.closest('.psg');
+    if (!psg || anc.closest('.hlrow') || !r.toString().trim()) { if (pending) hideBar(); return; }
+    showColours(r, psg);
+  }, 180);
+});
+BAR.addEventListener('pointerdown', function (e) { e.preventDefault(); });   // keep the selection while tapping a colour
+BAR.addEventListener('mousedown', function (e) { e.preventDefault(); });
+BAR.addEventListener('click', function (e) {
+  var b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.c && pending) {
+    var psg = pending.psg, r = pending.range;
+    var s = offsetOf(psg, r.startContainer, r.startOffset), en = offsetOf(psg, r.endContainer, r.endOffset);
+    var full = textNodes(psg).map(function (n) { return n.nodeValue; }).join('');
+    while (s < en && /\s/.test(full.charAt(s))) s++;
+    while (en > s && /\s/.test(full.charAt(en - 1))) en--;
+    if (s >= 0 && en > s) {
+      var k = psg.dataset.pi; (S.uh[k] = S.uh[k] || []).push({ s: s, e: en, c: b.dataset.c, id: Date.now().toString(36) + Math.random().toString(36).slice(2, 5) });
+      save(); paintUser(psg);
+    }
+    window.getSelection().removeAllRanges(); hideBar();
+  } else if (b.dataset.rm && removing) {
+    var p2 = removing.psg, k2 = p2.dataset.pi;
+    S.uh[k2] = (S.uh[k2] || []).filter(function (it) { return it.id !== removing.id; });
+    if (!S.uh[k2].length) delete S.uh[k2];
+    save(); paintUser(p2); hideBar();
+  }
+});
+document.addEventListener('click', function (e) {
+  var m = e.target.closest && e.target.closest('mark.uh');
+  if (m && window.getSelection().isCollapsed) {
+    removing = { psg: m.closest('.psg'), id: m.dataset.u }; pending = null;
+    BAR.innerHTML = '<button type="button" class="ghost sm" data-rm="1">Remove highlight</button>';
+    placeBar(m.getBoundingClientRect()); return;
+  }
+  if (!BAR.hidden && !e.target.closest('.hlbar') && window.getSelection().isCollapsed) hideBar();
+  var cb = e.target.closest && e.target.closest('[data-uclear]');
+  if (cb) {
+    var box = cb.closest('.uclear');
+    if ($('.uconfirm', box)) return;
+    var span = document.createElement('span'); span.className = 'uconfirm';
+    span.innerHTML = ' Clear all your highlights in this passage? <button type="button" class="danger sm" data-uyes>Clear</button> <button type="button" class="ghost sm" data-uno>Keep</button>';
+    box.appendChild(span);
+  }
+  var y = e.target.closest && e.target.closest('[data-uyes]');
+  if (y) { var ps = y.closest('.psg'); delete S.uh[ps.dataset.pi]; save(); paintUser(ps); }
+  var no = e.target.closest && e.target.closest('[data-uno]');
+  if (no) no.closest('.uconfirm').remove();
+});
+function clearUser(psg) { delete S.uh[psg.dataset.pi]; paintUser(psg); }
+
 /* ================================================================ per-pattern buttons */
 document.addEventListener('click', function (e) {
   var b = e.target.closest && e.target.closest('[data-showall], [data-clear]'); if (!b) return;
@@ -3310,7 +3431,7 @@ function renderMarking() {
         '<button type="button" class="primary sm" id="mark-yes">Mark the test</button> <button type="button" class="ghost sm" id="mark-no">Keep going</button></div>';
       $('#mark-yes').addEventListener('click', function () {
         if (S.timer.start) { S.test.time = Math.min(3600, Math.round((Date.now() - S.timer.start) / 1000)); S.timer.start = null; showTimer(); }
-        S.test.submitted = true; save(); lockExam(true); EXAM.forEach(badge); renderMarking(); updateToc();
+        S.test.submitted = true; save(); lockExam(true); EXAM.forEach(badge); examHl(true); renderMarking(); updateToc();
         document.getElementById('result-head').scrollIntoView();
       });
       $('#mark-no').addEventListener('click', function () { $('#markconfirm').innerHTML = ''; });
@@ -3326,15 +3447,17 @@ function renderMarking() {
       '. Each answer fold names the pattern in Part 3 that takes that question type apart.</p>' : '<p style="margin:0"><b>Full marks.</b></p>') +
     '<div class="actions" style="margin:0"><button type="button" class="ghost sm" id="retake">Take the test again</button><span id="retake-confirm"></span></div></div>';
   $('#retake').addEventListener('click', function () {
-    $('#retake-confirm').innerHTML = ' Clear all 40 answers? <button type="button" class="danger sm" id="retake-yes">Clear and restart</button> <button type="button" class="ghost sm" id="retake-no">Keep them</button>';
+    $('#retake-confirm').innerHTML = ' Clear all 40 answers and your highlights in the three passages? <button type="button" class="danger sm" id="retake-yes">Clear and restart</button> <button type="button" class="ghost sm" id="retake-no">Keep them</button>';
     $('#retake-yes').addEventListener('click', function () {
       EXAM.forEach(function (qa) { delete S.a[qa.dataset.q]; delete S.open[qa.dataset.q]; paint(qa); $('details.afold', qa).open = false; unbadge(qa); });
-      S.test = { submitted: false }; save(); lockExam(false); renderMarking(); updateToc();
+      S.test = { submitted: false }; examHl(false); [1, 2, 3].forEach(function (i) { clearUser(document.getElementById('passage-' + i)); }); save(); lockExam(false); renderMarking(); updateToc();
       document.getElementById('passage-1').scrollIntoView();
     });
     $('#retake-no').addEventListener('click', function () { $('#retake-confirm').innerHTML = ''; });
   });
 }
+
+function examHl(on) { [1, 2, 3].forEach(function (i) { var p = document.getElementById('passage-' + i); if (p && p._setHl) p._setHl(on); }); }
 
 /* ================================================================ optional 60-minute timer */
 var TIMER = $('#timer'), TT = $('#timer-t'), TSTART = $('#timer-start'), tick = null;

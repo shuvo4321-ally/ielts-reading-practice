@@ -19,7 +19,8 @@ It is one continuous page. The Contents on the cover jumps to any part or patter
 - **Answering:** TRUE/FALSE/NOT GIVEN and YES/NO/NOT GIVEN questions have three buttons. Multiple choice has letter buttons. Headings, matching and completion questions have a box to type in.
 - **Checking:** open **Show answer** under a question to see whether you were right, the correct answer and the reason.
 - **Marking:** typed answers are marked the way an examiner marks them. British and American spellings are both accepted, but a misspelled word is wrong. A near miss is pointed out.
-- **Highlights:** **Show highlights** on a passage marks the answer (yellow), the trap (pink) and the paraphrase (green).
+- **Answer highlights:** **Show highlights** on a passage marks the answer (yellow), the trap (pink) and the paraphrase (green). The three test passages show them after you mark the test. Hover a highlight to see which question it belongs to.
+- **Your own highlighter:** select any words in a passage and pick yellow, green, pink or blue, as in the computer-based test. Tap a highlight to remove it, or use **Clear my highlights**. Your highlights are saved too.
 - **Saving:** your answers are saved in this browser only. Nothing is sent anywhere.
 
 ## Rebuilding the page
@@ -36,9 +37,10 @@ The build needs Python with `beautifulsoup4`. It checks that every one of the 11
 | File | Contents |
 |---|---|
 | `src/content.html` | The walkthrough text (the same source as the PDF) |
-| `src/build.py` | Adds the answer controls, folds, Contents, timer and marking |
+| `src/build.py` | Adds the answer controls, folds, highlights, Contents, timer and marking |
+| `src/exam_highlights.py` | The answer, trap and paraphrase lines for the 40 test questions |
 | `src/style.css` | Page styles |
-| `src/app.js` | Marking, saved answers, highlights, timer and score |
+| `src/app.js` | Marking, saved answers, both kinds of highlight, timer and score |
 
 ## Note
 
